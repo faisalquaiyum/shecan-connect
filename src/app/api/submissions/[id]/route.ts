@@ -7,10 +7,12 @@ export const runtime = "nodejs";
 
 export async function DELETE(
   _request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    if (!isValidObjectId(params.id)) {
+    const { id } = await params;
+
+    if (!isValidObjectId(id)) {
       return NextResponse.json(
         { message: "Invalid submission id." },
         { status: 400 }
@@ -18,7 +20,7 @@ export async function DELETE(
     }
 
     await dbConnect();
-    const deleted = await Submission.findByIdAndDelete(params.id);
+    const deleted = await Submission.findByIdAndDelete(id);
 
     if (!deleted) {
       return NextResponse.json(

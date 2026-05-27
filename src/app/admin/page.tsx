@@ -6,9 +6,19 @@ import type { SubmissionRow } from "@/types/submission";
 
 export const dynamic = "force-dynamic";
 
+type LeanSubmission = {
+  _id: { toString(): string };
+  name: string;
+  email: string;
+  message: string;
+  createdAt: Date | string;
+};
+
 export default async function AdminPage() {
   await dbConnect();
-  const submissions = await Submission.find({}).sort({ createdAt: -1 }).lean();
+  const submissions = await Submission.find({})
+    .sort({ createdAt: -1 })
+    .lean<LeanSubmission[]>();
 
   const rows: SubmissionRow[] = submissions.map((item) => ({
     _id: item._id.toString(),
