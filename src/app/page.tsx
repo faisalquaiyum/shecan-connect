@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ContactForm from "@/components/ContactForm";
+import Navbar from "@/components/Navbar";
 
 const stats = [
   { value: "8,000+", label: "Community members" },
@@ -52,48 +53,9 @@ export default function Home() {
       <div className="pointer-events-none absolute -top-32 right-0 h-72 w-72 rounded-full bg-rose-200/50 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-32 left-0 h-80 w-80 rounded-full bg-cyan-200/50 blur-3xl" />
 
-      <header className="sticky top-0 z-50 w-full border-b border-slate-200/60 bg-white/85 backdrop-blur">
-        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4">
-          <div className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-rose-500 to-orange-400 text-sm font-semibold uppercase tracking-wide text-white shadow-lg">
-              SC
-            </div>
-            <div>
-              <p className="text-base font-semibold text-slate-900">
-                She Can Foundation
-              </p>
-              <p className="text-xs text-slate-500">
-                Empowering future leaders
-              </p>
-            </div>
-          </div>
-          <nav className="hidden items-center gap-6 text-sm text-slate-600 md:flex">
-            <Link className="transition hover:text-slate-900" href="#top">
-              Home
-            </Link>
-            <Link className="transition hover:text-slate-900" href="#about">
-              About
-            </Link>
-            <Link className="transition hover:text-slate-900" href="#impact">
-              Impact
-            </Link>
-            <Link className="transition hover:text-slate-900" href="#contact">
-              Contact
-            </Link>
-            <Link className="transition hover:text-slate-900" href="/admin">
-              Admin
-            </Link>
-          </nav>
-          <Link
-            href="#contact"
-            className="hidden rounded-full bg-slate-900 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white transition hover:-translate-y-0.5 hover:bg-slate-800 md:inline-flex"
-          >
-            Join the mission
-          </Link>
-        </div>
-      </header>
+      <Navbar />
 
-      <main className="relative mx-auto flex w-full max-w-6xl flex-1 flex-col gap-16 px-6 pb-24 pt-32 md:pt-36">
+      <main className="relative mx-auto flex w-full max-w-6xl flex-1 flex-col gap-16 px-6 pb-24 pt-20 md:pt-24">
         <section className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="space-y-6">
             <h1 className="text-4xl font-semibold leading-tight text-slate-900 sm:text-5xl sm:leading-tight">
